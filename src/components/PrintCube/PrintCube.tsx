@@ -1,6 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { HighlightOff, Edit } from "@material-ui/icons";
+import { Stickers, MaterialObject } from "../../interfaces";
+import { Header } from "./Header";
+import { ProductImage } from "./ProductImage";
+import { LogoArea } from "./LogoArea";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,17 +25,6 @@ const useStyles = makeStyles((theme) => ({
   textWrapper: {
     height: "80px",
   },
-  img: {
-    "background-position": "center",
-    "background-repeat": "no-repeat",
-    height: "140px",
-    "background-size": "contain",
-  },
-  logoWrapper: {
-    position: "absolute",
-    left: "20%",
-    bottom: "0px",
-  },
   buttonsWarper: {
     position: "absolute",
     bottom: "7px",
@@ -47,7 +40,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const material = {
+
+interface Props {
+  sticker: Stickers;
+  itemKey: number;
+  stickersList: Stickers[];
+  setStickersList: (stickersList: Stickers[]) => void;
+}
+
+
+const material: MaterialObject = {
   silver: "Silver",
   rose_gold: "Rose Gold",
   gold_plated: "24k Gold Plated",
@@ -55,18 +57,28 @@ const material = {
   white_gold: "14k White Gold",
 };
 
-function PrintCube({ sticker, itemKey }) {
+export const PrintCube = ({ sticker, itemKey, stickersList, setStickersList }: Props) => {
+
   const classes = useStyles();
-  console.log(sticker);
+
+
+  const removeSticker = () => {
+    const newList = stickersList.filter((item,index )=> index !== itemKey);
+    setStickersList(newList);
+  }
+
+  //TODO: https://dev.to/pnkfluffy/passing-data-from-child-to-parent-with-react-hooks-1ji3
+  const editSticker = () => {
+    const newList = stickersList.filter((item,index )=> index !== itemKey);
+    setStickersList(newList);
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.wrapper}>
         <div className={classes.textWrapper}>
-          <div className={classes.flex}>
-            <div className="display-inline">{sticker.date}</div>
-            <div className="display-inline">2</div>
-            <div className="display-inline">#{sticker.orderID}</div>
-          </div>
+          <Header date={sticker.date} quantity={sticker.quantity} orderID={sticker.orderID} />
+          {/* ContentArea */}
           <div className="height-20">
             {sticker.gift ? (
               <div className={`${classes.checkbox} float-left silver`}>
@@ -83,22 +95,18 @@ function PrintCube({ sticker, itemKey }) {
           <div>{sticker.line1}</div>
           <div>{sticker.line2}</div>
         </div>
-        <div>
-          <div
-            className={classes.img}
-            style={{ backgroundImage: `url('${sticker.image}')` }}
-          ></div>
-        </div>
-        <div className={classes.logoWrapper}>
-          <img src="/logo.png" alt="logo" />
-        </div>
+
+        <ProductImage imageURL={sticker.image} />
+
+        <LogoArea />
+
+
         <div className={classes.buttonsWarper}>
-          <HighlightOff className="float-left pointer" />
-          <Edit className="float-right" />
+          <HighlightOff onClick={removeSticker} className="float-left pointer" />
+          <Edit onClick={editSticker} className="float-right" />
         </div>
+
       </div>
     </div>
   );
 }
-
-export default PrintCube;

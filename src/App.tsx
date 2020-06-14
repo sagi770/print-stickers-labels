@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { FormArea } from "./components/FormArea";
-import StickersArea from "./components/StickersArea";
+import { FormArea } from "./components/FormArea/FormArea";
+import { StickersArea } from "./components/StickersArea";
 import ShowButton from "./components/ShowButton";
+import { Stickers } from "./interfaces";
+
 
 function App() {
-  const [stickersList, setStickersList] = useState([]);
-  const [formViewStatus, setFormViewStatus] = useState(true);
+  const [stickersList, setStickersList] = useState<Stickers[]>([]);
+  const [formViewStatus, setFormViewStatus] = useState<boolean>(true);
 
   //USE MOBX !!!
+  //USE CSS file
+
+  // const setStickers = (stickersList: Stickers[]) => {
+  //   setStickersList(stickersList);
+  // }
+
   return (
     <div>
       {formViewStatus ? (
@@ -17,8 +25,8 @@ function App() {
           setFormViewStatus={setFormViewStatus}
         />
       ) : (
-        <ShowButton setFormViewStatus={setFormViewStatus} />
-      )}
+          <ShowButton setFormViewStatus={setFormViewStatus} />
+        )}
 
       <StickersArea
         formViewStatus={formViewStatus}

@@ -8,7 +8,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ShowButton({ setFormViewStatus }) {
+interface Props {
+  setFormViewStatus: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function ShowButton({ setFormViewStatus }:Props) {
   const classes = useStyles();
 
   const showForm = () => {
