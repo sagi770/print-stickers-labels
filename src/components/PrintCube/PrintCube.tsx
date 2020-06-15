@@ -1,38 +1,30 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { HighlightOff, Edit } from "@material-ui/icons";
-import { Stickers, MaterialObject } from "../../interfaces";
+import { Stickers } from "../../interfaces";
 import { Header } from "./Header";
 import { ProductImage } from "./ProductImage";
+import { ContentArea } from "./ContentArea";
 import { LogoArea } from "./LogoArea";
+import { ButtonsArea } from "./ButtonsArea";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "6cm",
+    height: "7cm",
     width: "4.58cm",
     float: "left",
     "max-width": "4.58cm",
-    "max-height": "6cm",
+    "max-height": "7cm",
     "font-size": "13px",
     "text-transform": "uppercase",
 
-    border: "1px solid",
+    // border: "1px solid",
   },
   wrapper: {
     padding: "5px",
     position: "relative",
   },
   textWrapper: {
-    height: "80px",
-  },
-  buttonsWarper: {
-    position: "absolute",
-    bottom: "7px",
-    width: "157px",
-    height: "20px",
-  },
-  checkbox: {
-    padding: "0 4px",
+    height: "90px",
   },
   flex: {
     display: "flex",
@@ -43,69 +35,37 @@ const useStyles = makeStyles((theme) => ({
 
 interface Props {
   sticker: Stickers;
+  formViewStatus: boolean;
   itemKey: number;
   stickersList: Stickers[];
   setStickersList: (stickersList: Stickers[]) => void;
+  setFormState: React.Dispatch<React.SetStateAction<Stickers>>;
 }
 
 
-const material: MaterialObject = {
-  silver: "Silver",
-  rose_gold: "Rose Gold",
-  gold_plated: "24k Gold Plated",
-  gold: "14k Yellow",
-  white_gold: "14k White Gold",
-};
-
-export const PrintCube = ({ sticker, itemKey, stickersList, setStickersList }: Props) => {
+export const PrintCube = ({ sticker, itemKey, stickersList, setStickersList, setFormState, formViewStatus }: Props) => {
 
   const classes = useStyles();
-
-
-  const removeSticker = () => {
-    const newList = stickersList.filter((item,index )=> index !== itemKey);
-    setStickersList(newList);
-  }
-
-  //TODO: https://dev.to/pnkfluffy/passing-data-from-child-to-parent-with-react-hooks-1ji3
-  const editSticker = () => {
-    const newList = stickersList.filter((item,index )=> index !== itemKey);
-    setStickersList(newList);
-  }
 
   return (
     <div className={classes.root}>
       <div className={classes.wrapper}>
         <div className={classes.textWrapper}>
           <Header date={sticker.date} quantity={sticker.quantity} orderID={sticker.orderID} />
-          {/* ContentArea */}
-          <div className="height-20">
-            {sticker.gift ? (
-              <div className={`${classes.checkbox} float-left silver`}>
-                אריזת מתנה
-              </div>
-            ) : null}
-            {sticker.fast ? (
-              <div className="float-right silver">שליח עד הבית</div>
-            ) : null}
-          </div>
-          <div className={`material-class-${sticker.material}`}>
-            {material[sticker.material]}
-          </div>
-          <div>{sticker.line1}</div>
-          <div>{sticker.line2}</div>
+          <ContentArea sticker={sticker} />
         </div>
 
         <ProductImage imageURL={sticker.image} />
-
         <LogoArea />
-
-
-        <div className={classes.buttonsWarper}>
-          <HighlightOff onClick={removeSticker} className="float-left pointer" />
-          <Edit onClick={editSticker} className="float-right" />
-        </div>
-
+        {(formViewStatus ?
+          <ButtonsArea
+            sticker={sticker}
+            itemKey={itemKey}
+            setFormState={setFormState}
+            stickersList={stickersList}
+            setStickersList={setStickersList} />
+          : null
+        )}
       </div>
     </div>
   );

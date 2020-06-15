@@ -23,7 +23,7 @@ export const Header = ({ date, quantity, orderID }: Props) => {
     return (
         <div className={classes.flex}>
             <div className="display-inline">{date}</div>
-            <div className="display-inline">{quantity}</div>
+            <div className="display-inline">{(quantity !== "" ? `X${quantity}` : null)}</div>
             <div className="display-inline">#{orderID}</div>
         </div>
     );

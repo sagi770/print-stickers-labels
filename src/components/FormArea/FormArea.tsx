@@ -39,32 +39,13 @@ interface Props {
   setStickersList: React.Dispatch<React.SetStateAction<Stickers[]>>;
   stickersList: Stickers[];
   setFormViewStatus: React.Dispatch<React.SetStateAction<boolean>>;
+  formState: Stickers;
+  setFormState: React.Dispatch<React.SetStateAction<Stickers>>;
+  todayDate: string;
 }
 
-export function FormArea({ setStickersList, stickersList, setFormViewStatus }: Props) {
+export function FormArea({ setStickersList, stickersList, formState, setFormState, setFormViewStatus, todayDate }: Props) {
   const classes = useStyles();
-
-  const today = new Date();
-  today.setDate(new Date().getDate() + 1);
-
-  const dd = String(today.getDate()).padStart(2, "0");
-  const mm = String(today.getMonth() + 1).padStart(2, "0");
-  const yyyy = today.getFullYear();
-  const newDate = yyyy + "-" + mm + "-" + dd;
-
-  const [formState, setFormState] = useState<Stickers>({
-    orderID: "11",
-    date: newDate,
-    quantity: "",
-    material: "silver",
-    chainLength: "",
-    line1: "line1",
-    line2: "line2",
-    image:
-      "https://instagram.ftlv6-1.fna.fbcdn.net/v/t51.2885-15/e15/s320x320/98331657_291805631844341_3782185453709637350_n.jpg?_nc_ht=instagram.ftlv6-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=S3XzhPEIHGgAX_z8V84&oh=666e229c5f174508a405cb4895b9043b&oe=5F0A1887",
-    gift: false,
-    fast: false,
-  });
 
   const hideForm = () => {
     setFormViewStatus(false);
@@ -73,7 +54,7 @@ export function FormArea({ setStickersList, stickersList, setFormViewStatus }: P
   const emptyStickers = () => {
     setFormState({
       orderID: "",
-      date: newDate,
+      date: todayDate,
       quantity: "",
       material: "",
       chainLength: "",
