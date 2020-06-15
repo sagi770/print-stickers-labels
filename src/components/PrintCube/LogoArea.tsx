@@ -15,7 +15,7 @@ export const LogoArea = () => {
 
   return (
     <div className={classes.logoWrapper}>
-      <img src="/logo.png" alt="logo" />
+      <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="logo" />
     </div>
   );
 }

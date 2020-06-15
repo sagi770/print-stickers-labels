@@ -11,6 +11,7 @@ const getTodayDate = () => {
   const dd = String(today.getDate()).padStart(2, "0");
   const mm = String(today.getMonth() + 1).padStart(2, "0");
   const yyyy = today.getFullYear();
+  
   return yyyy + "-" + mm + "-" + dd;
 }
 
@@ -21,15 +22,14 @@ const App = () => {
   const todayDate = getTodayDate();
 
   const [formState, setFormState] = useState<Stickers>({
-    orderID: "11",
+    orderID: "",
     date: todayDate,
     quantity: "",
-    material: "silver",
+    material: "",
     chainLength: "",
-    line1: "line1",
-    line2: "line2",
-    image:
-      "https://instagram.ftlv6-1.fna.fbcdn.net/v/t51.2885-15/e15/s320x320/98331657_291805631844341_3782185453709637350_n.jpg?_nc_ht=instagram.ftlv6-1.fna.fbcdn.net&_nc_cat=105&_nc_ohc=S3XzhPEIHGgAX_z8V84&oh=666e229c5f174508a405cb4895b9043b&oe=5F0A1887",
+    line1: "",
+    line2: "",
+    image: "",
     gift: false,
     fast: false,
   });

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FormControl,
-  TextField,
   MenuItem,
   InputLabel,
   Select,
@@ -79,7 +78,7 @@ export function FormArea({ setStickersList, stickersList, formState, setFormStat
 
   const handleSubmit = () => {
     setStickersList((stickersList) => [...stickersList, formState]);
-    // emptyStickers();//TODO:remove it!!
+    emptyStickers();
   };
 
   return (
@@ -99,6 +98,7 @@ export function FormArea({ setStickersList, stickersList, formState, setFormStat
           value={formState.material}
           onChange={materialHandleChange}
         >
+          <MenuItem value="">None</MenuItem>
           <MenuItem value="silver">Silver</MenuItem>
           <MenuItem value="rose_gold">Rose Gold</MenuItem>
           <MenuItem value="gold_plated">Gold Plated</MenuItem>
