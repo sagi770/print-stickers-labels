@@ -35,6 +35,7 @@ export const ContentArea = ({ sticker }: Props) => {
                     <div className="float-right silver">שליח עד הבית</div>
                 ) : null}
             </div>
+            <div>{sticker.chainLength}</div>
             <div className={`material-class-${sticker.material}`}>
                 {material[sticker.material]}
             </div>
