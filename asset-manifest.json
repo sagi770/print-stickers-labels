@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/print-stickers-labels/static/css/main.4b420472.chunk.css",
-    "main.js": "/print-stickers-labels/static/js/main.dc526425.chunk.js",
-    "main.js.map": "/print-stickers-labels/static/js/main.dc526425.chunk.js.map",
+    "main.js": "/print-stickers-labels/static/js/main.c1eb44ed.chunk.js",
+    "main.js.map": "/print-stickers-labels/static/js/main.c1eb44ed.chunk.js.map",
     "runtime-main.js": "/print-stickers-labels/static/js/runtime-main.173140d6.js",
     "runtime-main.js.map": "/print-stickers-labels/static/js/runtime-main.173140d6.js.map",
     "static/js/2.09f26f0d.chunk.js": "/print-stickers-labels/static/js/2.09f26f0d.chunk.js",
     "static/js/2.09f26f0d.chunk.js.map": "/print-stickers-labels/static/js/2.09f26f0d.chunk.js.map",
     "index.html": "/print-stickers-labels/index.html",
-    "precache-manifest.9ac2a015e4af5bd57eae69fddf5801fc.js": "/print-stickers-labels/precache-manifest.9ac2a015e4af5bd57eae69fddf5801fc.js",
+    "precache-manifest.4d09eb61008454dcd6e7372b7d680615.js": "/print-stickers-labels/precache-manifest.4d09eb61008454dcd6e7372b7d680615.js",
     "service-worker.js": "/print-stickers-labels/service-worker.js",
     "static/css/main.4b420472.chunk.css.map": "/print-stickers-labels/static/css/main.4b420472.chunk.css.map",
     "static/js/2.09f26f0d.chunk.js.LICENSE.txt": "/print-stickers-labels/static/js/2.09f26f0d.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.173140d6.js",
     "static/js/2.09f26f0d.chunk.js",
     "static/css/main.4b420472.chunk.css",
-    "static/js/main.dc526425.chunk.js"
+    "static/js/main.c1eb44ed.chunk.js"
   ]
 }

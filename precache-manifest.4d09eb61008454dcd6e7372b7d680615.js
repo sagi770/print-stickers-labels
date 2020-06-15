@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d1524d84a6a11794509707e803324234",
+    "revision": "e90d15be1fcbe30035ca3d9e328ec845",
     "url": "/print-stickers-labels/index.html"
   },
   {
-    "revision": "1066dffe12f93f610c38",
+    "revision": "79904d612371b1580382",
     "url": "/print-stickers-labels/static/css/main.4b420472.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/print-stickers-labels/static/js/2.09f26f0d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1066dffe12f93f610c38",
-    "url": "/print-stickers-labels/static/js/main.dc526425.chunk.js"
+    "revision": "79904d612371b1580382",
+    "url": "/print-stickers-labels/static/js/main.c1eb44ed.chunk.js"
   },
   {
     "revision": "53cfa7e862af551eb4a2",
