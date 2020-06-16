@@ -6,7 +6,6 @@ import { Stickers } from "./interfaces";
 
 const getTodayDate = () => {
   const today = new Date();
-  today.setDate(new Date().getDate() + 1);
 
   const dd = String(today.getDate()).padStart(2, "0");
   const mm = String(today.getMonth() + 1).padStart(2, "0");
