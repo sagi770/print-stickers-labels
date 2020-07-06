@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     "max-width": "4.58cm",
     "max-height": "7cm",
     "font-size": "13px",
-    "text-transform": "uppercase",
 
     // border: "1px solid",
   },
